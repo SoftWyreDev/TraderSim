@@ -21,14 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
       queuedOrders.forEach(order => {
         const date = new Date(order.created_at);
-        const localTime = new Date(date.getTime() - 7 * 60 * 60 * 1000)  
-        .toLocaleString('en-US', { hour12: true }); 
+        const localTime = date.toLocaleString('en-US', {
+          timeZone: 'America/Los_Angeles', 
+          hour12: true
+        });
         const row = document.createElement('tr');
         row.innerHTML = `
           <td data-label="Type"><b>${order.type}</b></td>
           <td data-label="Ticker">${order.ticker}</td>
           <td data-label="Shares">${order.shares}</td>
-          <td data-label="Created At">${localTime} (PDT)</td>
+          <td data-label="Created At">${localTime}</td>
           <td data-label="Status"><b>${order.status}</b></td>
           <td data-label="Cancel" class="${order.status === 'COMPLETE' ? 'hide-mobile' : ''}">
            ${order.status === 'COMPLETE'
