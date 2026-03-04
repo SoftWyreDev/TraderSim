@@ -620,6 +620,9 @@ input:checked + .slider:before {
     display: none;
 }
 
+.email a {
+  text-decoration: none;
+}
 
 @media (min-height: 800px) {
   nav ul {
