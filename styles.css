@@ -613,7 +613,6 @@ input:checked + .slider:before {
 
 .privacy-box a {
     color: white;
-    font-weight: bold;
 }
 
 .email b {
@@ -621,7 +620,10 @@ input:checked + .slider:before {
 }
 
 .email a {
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-thickness: 0.5px;
+  text-underline-offset: 3px;
+  transition: ease 0.4s all;
 }
 
 @media (min-height: 800px) {
